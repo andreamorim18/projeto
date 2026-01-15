@@ -6,56 +6,42 @@
     <title>André Amorim — Portfólio & Links</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <input
-      type="checkbox"
-      id="themeToggle"
-      class="theme-toggle"
-      aria-label="Alternar tema"
-    />
-    <div class="bg" aria-hidden="true"></div>
-    <main class="wrap" role="main" aria-label="Hub de links do André Amorim">
+    <input type="checkbox" id="themeToggle" class="theme-toggle" aria-label="Alternar tema" />
+    <div class="bg"></div>
+
+    <main class="wrap" role="main">
       <header class="profile">
-        <div class="avatar">
-          <img src="./profile.png" alt="Foto de André Amorim" />
-        </div>
+        <div class="avatar"><img src="profile.png" alt="Foto de André Amorim" /></div>
         <h1 class="name">André Amorim</h1>
         <p class="handle">@andre.amorim33</p>
       </header>
 
-      <section class="switch-wrap" aria-label="Alternar tema">
+      <section class="switch-wrap">
         <label for="themeToggle" class="switch" id="themeSwitch" role="switch" aria-checked="false">
-          <span class="track" aria-hidden="true"></span>
-          <span class="thumb" aria-hidden="true">
-            <i id="themeIcon" class="fa-solid fa-moon"></i>
-          </span>
+          <span class="track"></span>
+          <span class="thumb"><i id="themeIcon" class="fa-solid fa-moon"></i></span>
         </label>
-        <p class="mode-label" id="themeLabel">Dark Mode</p>
+        <p id="themeLabel">Dark Mode</p>
       </section>
 
-      <nav class="links" aria-label="Links principais">
+      <nav class="links">
         <a class="link-btn" href="https://github.com/andreamorim18" target="_blank">GitHub (Projetos)</a>
         <a class="link-btn" href="https://www.linkedin.com/in/andreamorim5855/" target="_blank">LinkedIn (Perfil)</a>
         <a class="link-btn" href="https://www.youtube.com/@Darkazerazs" target="_blank">YouTube (Canal)</a>
         <a class="link-btn" href="https://www.instagram.com/andre.amorim33/" target="_blank">Instagram</a>
       </nav>
 
-      <section class="social" aria-label="Redes sociais">
-        <a href="https://github.com/andreamorim18" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.instagram.com/andre.amorim33/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@Darkazerazs" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://www.linkedin.com/in/andreamorim5855/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <section class="social">
+        <a href="https://github.com/andreamorim18" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/andre.amorim33/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@Darkazerazs" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/andreamorim5855/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
       </section>
 
       <footer>
@@ -63,6 +49,7 @@
         <a href="mailto:andre.amorim33@gmail.com" class="contact-btn">📧 Contato</a>
       </footer>
     </main>
-    <script src="./script.js" defer></script>
+
+    <script src="script.js" defer></script>
   </body>
 </html>

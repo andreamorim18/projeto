@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const label = document.getElementById("themeLabel");
   const icon = document.getElementById("themeIcon");
   const switchEl = document.getElementById("themeSwitch");
-
   if (!toggle || !label || !icon || !switchEl) return;
 
   function getInitialTheme() {
@@ -12,13 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (saved === "light") return true;
       if (saved === "dark") return false;
     } catch {}
-    try {
-      return (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: light)").matches
-      );
-    } catch {}
-    return false;
+    return window.matchMedia("(prefers-color-scheme: light)").matches;
   }
 
   function applyTheme(isLight, save = true) {
@@ -26,20 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     label.textContent = isLight ? "Light Mode" : "Dark Mode";
     icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
     switchEl.setAttribute("aria-checked", String(isLight));
-    if (save) {
-      try {
-        localStorage.setItem("theme", isLight ? "light" : "dark");
-      } catch {}
-    }
+    document.body.dataset.theme = isLight ? "light" : "dark";
+    if (save) localStorage.setItem("theme", isLight ? "light" : "dark");
   }
 
   applyTheme(getInitialTheme(), false);
-
-  toggle.addEventListener("change", () => {
-    applyTheme(toggle.checked, true);
-  });
-
-  switchEl.addEventListener("click", () => {
-    setTimeout(() => applyTheme(toggle.checked, true), 0);
-  });
+  toggle.addEventListener("change", () => applyTheme(toggle.checked, true));
+  switchEl.addEventListener("click", () => setTimeout(() => applyTheme(toggle.checked, true), 0));
 });
