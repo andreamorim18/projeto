@@ -4,29 +4,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const icon = document.getElementById("themeIcon");
   const switchEl = document.getElementById("themeSwitch");
 
-  if (!toggle || !label || !icon) return;
+  if (!toggle || !label || !icon || !switchEl) return;
 
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") toggle.checked = true;
+  function getInitialTheme() {
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light") return true;
+      if (saved === "dark") return false;
+    } catch {}
 
-  function updateUI(save = true) {
-    const isLight = toggle.checked;
+    try {
+      return (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: light)").matches
+      );
+    } catch {}
 
-    label.textContent = isLight ? "Light Mode" : "Dark Mode";
-    icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
-
-    // Acessibilidade (sincroniza o switch)
-    if (switchEl) switchEl.setAttribute("aria-checked", String(isLight));
-
-    // Opcional: dataset (se você quiser usar no CSS no futuro)
-    document.body.dataset.theme = isLight ? "light" : "dark";
-
-    // Salva
-    if (save) localStorage.setItem("theme", isLight ? "light" : "dark");
+    return false;
   }
 
-  toggle.addEventListener("change", () => updateUI(true));
+  function applyTheme(isLight, save = true) {
+    toggle.checked = isLight;
+    label.textContent = isLight ? "Light Mode" : "Dark Mode";
+    icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
+    switchEl.setAttribute("aria-checked", String(isLight));
 
-  // Inicializa sem regravar o localStorage desnecessariamente
-  updateUI(false);
+    if (save) {
+      try {
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+      } catch {}
+    }
+  }
+
+  applyTheme(getInitialTheme(), false);
+
+  toggle.addEventListener("change", () => {
+    applyTheme(toggle.checked, true);
+  });
+
+  switchEl.addEventListener("click", () => {
+    setTimeout(() => applyTheme(toggle.checked, true), 0);
+  });
 });
