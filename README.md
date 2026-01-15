@@ -1,4 +1,4 @@
-# projeto
+# Projeto
 Meu hub de links/portfólio pessoal (HTML + CSS + JS) com Dark/Light mode.
 # André Amorim — Portfólio & Links (Vidro Aurora)
 
