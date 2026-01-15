@@ -23,24 +23,3 @@ Hub de links/portfólio pessoal feito em **HTML + CSS + JavaScript**, com visual
 ├─ style.css
 ├─ script.js
 └─ profile.png
-
-## ▶️ Como rodar localmente
-1. Baixe/clonar o repositório
-2. Abra o arquivo `index.html` no navegador
-
-## 🚀 Publicar no GitHub Pages
-1. Vá em **Settings**
-2. **Pages**
-3. **Build and deployment**
-   - Source: `Deploy from a branch`
-   - Branch: `main`
-   - Folder: `/(root)`
-4. Salve e aguarde o link aparecer
-
-## 🧠 Observações importantes
-- No GitHub Pages, **maiúsculas/minúsculas importam**.  
-  Garanta que a imagem esteja como **`profile.png`** e o HTML também use `profile.png`.
-
-## 📄 Licença
-Este projeto é de uso pessoal/portfólio.  
-Se desejar liberar para uso geral, adicione uma licença (ex.: MIT).
