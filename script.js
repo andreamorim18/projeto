@@ -12,14 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (saved === "light") return true;
       if (saved === "dark") return false;
     } catch {}
-
     try {
       return (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: light)").matches
       );
     } catch {}
-
     return false;
   }
 
@@ -28,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     label.textContent = isLight ? "Light Mode" : "Dark Mode";
     icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
     switchEl.setAttribute("aria-checked", String(isLight));
-
     if (save) {
       try {
         localStorage.setItem("theme", isLight ? "light" : "dark");
