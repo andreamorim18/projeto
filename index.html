@@ -20,7 +20,9 @@
     <!-- Estilo -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <!-- Toggle do tema (controla o CSS via :checked) -->
     <input
       type="checkbox"
       id="themeToggle"
@@ -28,65 +30,93 @@
       aria-label="Alternar tema"
     />
 
-    <div class="bg"></div>
+    <!-- Fundo -->
+    <div class="bg" aria-hidden="true"></div>
 
-    <main class="wrap">
+    <!-- Card -->
+    <main class="wrap" role="main" aria-label="Hub de links do André Amorim">
       <header class="profile">
         <div class="avatar">
-          <img src="Profile.png" alt="Foto de André Amorim">
+          <img src="profile.png" alt="Foto de André Amorim" />
         </div>
         <h1 class="name">André Amorim</h1>
         <p class="handle">@andre.amorim33</p>
       </header>
 
-      <section class="switch-wrap">
-        <label for="themeToggle" class="switch">
-          <span class="track"></span>
-          <span class="thumb"
-            ><i id="themeIcon" class="fa-solid fa-moon"></i
-          ></span>
+      <section class="switch-wrap" aria-label="Alternar tema">
+        <label
+          for="themeToggle"
+          class="switch"
+          id="themeSwitch"
+          role="switch"
+          aria-checked="false"
+        >
+          <span class="track" aria-hidden="true"></span>
+          <span class="thumb" aria-hidden="true">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+          </span>
         </label>
-        <p id="themeLabel">Dark Mode</p>
+        <p class="mode-label" id="themeLabel">Dark Mode</p>
       </section>
 
-      <nav class="links">
+      <nav class="links" aria-label="Links principais">
         <a
           class="link-btn"
           href="https://github.com/andreamorim18"
           target="_blank"
+          rel="noopener noreferrer"
           >GitHub (Projetos)</a
         >
         <a
           class="link-btn"
           href="https://www.linkedin.com/in/andreamorim5855/"
           target="_blank"
+          rel="noopener noreferrer"
           >LinkedIn (Perfil)</a
         >
         <a
           class="link-btn"
           href="https://www.youtube.com/@Darkazerazs"
           target="_blank"
+          rel="noopener noreferrer"
           >YouTube (Canal)</a
         >
         <a
           class="link-btn"
           href="https://www.instagram.com/andre.amorim33/"
           target="_blank"
+          rel="noopener noreferrer"
           >Instagram</a
         >
       </nav>
 
-      <section class="social">
-        <a href="https://github.com/andreamorim18" target="_blank"
+      <section class="social" aria-label="Redes sociais">
+        <a
+          href="https://github.com/andreamorim18"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
           ><i class="fa-brands fa-github"></i
         ></a>
-        <a href="https://www.instagram.com/andre.amorim33/" target="_blank"
+        <a
+          href="https://www.instagram.com/andre.amorim33/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
           ><i class="fa-brands fa-instagram"></i
         ></a>
-        <a href="https://www.youtube.com/@Darkazerazs" target="_blank"
+        <a
+          href="https://www.youtube.com/@Darkazerazs"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
           ><i class="fa-brands fa-youtube"></i
         ></a>
-        <a href="https://www.linkedin.com/in/andreamorim5855/" target="_blank"
+        <a
+          href="https://www.linkedin.com/in/andreamorim5855/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
           ><i class="fa-brands fa-linkedin"></i
         ></a>
       </section>
@@ -99,7 +129,7 @@
       </footer>
     </main>
 
-    <script src="script.js"></script>
+    <!-- Script (defer evita erro de carregar antes do DOM) -->
+    <script src="script.js" defer></script>
   </body>
 </html>
-
