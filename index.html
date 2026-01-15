@@ -1,60 +1,133 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("themeToggle");
-  const label = document.getElementById("themeLabel");
-  const icon = document.getElementById("themeIcon");
-  const switchEl = document.getElementById("themeSwitch");
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>André Amorim — Portfólio & Links</title>
 
-  if (!toggle || !label || !icon || !switchEl) return;
+    <!-- Fonte e ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-  // Lê preferência salva (ou usa preferência do sistema)
-  function getInitialTheme() {
-    try {
-      const saved = localStorage.getItem("theme");
-      if (saved === "light") return true;
-      if (saved === "dark") return false;
-    } catch {}
+    <!-- Estilo -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-    // Preferência do sistema
-    try {
-      return window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: light)").matches;
-    } catch {}
+  <body>
+    <!-- Toggle do tema -->
+    <input
+      type="checkbox"
+      id="themeToggle"
+      class="theme-toggle"
+      aria-label="Alternar tema"
+    />
 
-    return false; // padrão: dark
-  }
+    <div class="bg" aria-hidden="true"></div>
 
-  function applyTheme(isLight, save = true) {
-    // checkbox controla o CSS via :checked
-    toggle.checked = isLight;
+    <main class="wrap" role="main" aria-label="Hub de links do André Amorim">
+      <header class="profile">
+        <div class="avatar">
+          <img src="./profile.png" alt="Foto de André Amorim" />
+        </div>
+        <h1 class="name">André Amorim</h1>
+        <p class="handle">@andre.amorim33</p>
+      </header>
 
-    // Texto e ícone
-    label.textContent = isLight ? "Light Mode" : "Dark Mode";
-    icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
+      <section class="switch-wrap" aria-label="Alternar tema">
+        <label
+          for="themeToggle"
+          class="switch"
+          id="themeSwitch"
+          role="switch"
+          aria-checked="false"
+        >
+          <span class="track" aria-hidden="true"></span>
+          <span class="thumb" aria-hidden="true">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+          </span>
+        </label>
+        <p class="mode-label" id="themeLabel">Dark Mode</p>
+      </section>
 
-    // Acessibilidade
-    switchEl.setAttribute("aria-checked", String(isLight));
+      <nav class="links" aria-label="Links principais">
+        <a
+          class="link-btn"
+          href="https://github.com/andreamorim18"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub (Projetos)</a
+        >
+        <a
+          class="link-btn"
+          href="https://www.linkedin.com/in/andreamorim5855/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn (Perfil)</a
+        >
+        <a
+          class="link-btn"
+          href="https://www.youtube.com/@Darkazerazs"
+          target="_blank"
+          rel="noopener noreferrer"
+          >YouTube (Canal)</a
+        >
+        <a
+          class="link-btn"
+          href="https://www.instagram.com/andre.amorim33/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram</a
+        >
+      </nav>
 
-    // Salvar
-    if (save) {
-      try {
-        localStorage.setItem("theme", isLight ? "light" : "dark");
-      } catch {}
-    }
-  }
+      <section class="social" aria-label="Redes sociais">
+        <a
+          href="https://github.com/andreamorim18"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/andre.amorim33/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/@Darkazerazs"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+          ><i class="fa-brands fa-youtube"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/andreamorim5855/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+      </section>
 
-  // Inicializa
-  applyTheme(getInitialTheme(), false);
+      <footer>
+        <p>© 2026 André Amorim — Todos os direitos reservados</p>
+        <a href="mailto:andre.amorim33@gmail.com" class="contact-btn"
+          >📧 Contato</a
+        >
+      </footer>
+    </main>
 
-  // Mudança
-  toggle.addEventListener("change", () => {
-    applyTheme(toggle.checked, true);
-  });
-
-  // (Opcional) clicar no rótulo/switch já funciona pelo "for",
-  // mas mantém compatibilidade caso você clique no container em algum momento
-  switchEl.addEventListener("click", () => {
-    // o click no label já alterna o checkbox automaticamente,
-    // então só sincronizamos na sequência
-    setTimeout(() => applyTheme(toggle.checked, true), 0);
-  });
-});
+    <!-- Script -->
+    <script src="./script.js" defer></script>
+  </body>
+</html>
